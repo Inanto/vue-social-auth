@@ -1330,7 +1330,7 @@ VueSocialauth.prototype.authenticate = function authenticate (provider, userData
  * @param {Object} Vue
  * @param {Object} options
  */
-function plugin(Vue, options) {
+function plugin(app, options) {
   if (plugin.installed) {
     return
   }
@@ -1339,7 +1339,7 @@ function plugin(Vue, options) {
   var property = options.property || '$auth';
 
   var vueAuthInstance = null;
-  Object.defineProperties(Vue.prototype, ( obj = {}, obj[property] = {
+  Object.defineProperties(app.config.globalProperties, ( obj = {}, obj[property] = {
       get: function get() {
         if (!vueAuthInstance) {
           // Request handler library not found, throw error
