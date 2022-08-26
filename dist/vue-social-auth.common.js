@@ -1341,7 +1341,7 @@ function plugin(app, options) {
           // Request handler library not found, throw error
           // verified vue or nuxt instance
           if (window.axios) {
-            vueAuthInstance = new VueSocialauth(windows.axios, options);
+            vueAuthInstance = new VueSocialauth(window.axios, options);
           } else if (this.$http) {
             vueAuthInstance = new VueSocialauth(this.$http, options);
           } else {
