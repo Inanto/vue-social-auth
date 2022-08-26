@@ -7,7 +7,7 @@ import VueSocialauth from './authenticate.js'
  * @param {Object} Vue
  * @param {Object} options
  */
-function plugin(Vue, options) {
+function plugin(app, options) {
   if (plugin.installed) {
     return
   }
@@ -16,7 +16,7 @@ function plugin(Vue, options) {
   const property = options.property || '$auth'
 
   let vueAuthInstance = null;
-  Object.defineProperties(Vue.prototype, {
+  Object.defineProperties(app.config.globalProperties, {
     [property]: {
       get() {
         if (!vueAuthInstance) {
